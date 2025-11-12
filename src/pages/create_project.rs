@@ -376,7 +376,7 @@ pub fn create_project() -> Html
                                                         required=true />
                                                 </div>
                                                 <div class="form-group">
-                                                    <label for="github_branch">{ "Branche (Optionnel)" }</label>
+                                                    <label for="github_branch">{ i18n.t("create_project.github_branch_label") }</label>
                                                     <input type="text" id="github_branch" class="text-input"
                                                         placeholder="main"
                                                         value={(*github_branch).clone()}
@@ -384,7 +384,7 @@ pub fn create_project() -> Html
                                                     <small style="color: var(--color-text-secondary)">{ i18n.t("create_project.github_branch_help") }</small>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label for="github_root_dir">{ "Dossier Racine (Optionnel)" }</label>
+                                                    <label for="github_root_dir">{ i18n.t("create_project.github_root_dir_label") }</label>
                                                     <input type="text" id="github_root_dir" class="text-input"
                                                         placeholder="/"
                                                         value={(*github_root_dir).clone()}

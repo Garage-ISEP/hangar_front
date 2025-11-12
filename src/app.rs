@@ -196,6 +196,8 @@ pub fn app() -> Html
                     "description_database": "Create a standalone MariaDB database, without linking it to a project.",
                     "create_db_checkbox": "Also create and link a new database",
                     "github_branch_help": "Leave empty to use the default branch.",
+                    "github_branch_label": "GitHub branch (Optional)",
+                    "github_root_dir_label": "Root Directory (Optional)",
                     "github_root_dir_help": "The subdirectory containing your main file. Leave empty if the code is at the root."
                 },
                 "project_dashboard": {
@@ -220,6 +222,9 @@ pub fn app() -> Html
                     "start_button": "Start",
                     "stop_button": "Stop",
                     "restart_button": "Restart",
+                    "start_success": "Project started successfully!",
+                    "stop_success": "Project stopped successfully!",
+                    "restart_success": "Project restarted successfully!",
                     "fetch_logs_button": "Fetch logs",
                     "fetch_logs_loading": "Loading...",
                     "update_image_description": "Deploy a new version of your application by providing a new Docker image URL.",
@@ -255,6 +260,7 @@ pub fn app() -> Html
                     "db_name": "Database Name",
                     "username": "Username",
                     "password": "Password",
+                    "open_phpmyadmin": "Open phpMyAdmin",
                     "link_to_project_title": "Link to a Project",
                     "no_projects_to_link": "You have no projects available to link this database to.",
                     "select_project": "Select a project...",
@@ -475,6 +481,8 @@ pub fn app() -> Html
                     "description_database": "Créez une base de données MariaDB autonome, sans la lier à un projet.",
                     "create_db_checkbox": "Créer et lier également une nouvelle base de données",
                     "github_branch_help": "Laissez vide pour utiliser la branche par défaut.",
+                    "github_branch_label": "Branche GitHub (facultatif)",
+                    "github_root_dir_label": "Dossier Racine (facultatif)",
                     "github_root_dir_help": "Le sous-dossier contenant votre fichier principal. Laissez vide si le code est à la racine."
                 },
                 "project_dashboard": {
@@ -499,6 +507,9 @@ pub fn app() -> Html
                     "start_button": "Démarrer",
                     "stop_button": "Arrêter",
                     "restart_button": "Redémarrer",
+                    "start_success": "Projet démarré avec succès !",
+                    "stop_success": "Projet arrêté avec succès !",
+                    "restart_success": "Projet redémarré avec succès !",
                     "fetch_logs_button": "Récupérer les logs",
                     "fetch_logs_loading": "Chargement...",
                     "update_image_description": "Déployez une nouvelle version de votre application en fournissant une nouvelle URL d'image Docker.",
@@ -534,6 +545,7 @@ pub fn app() -> Html
                     "db_name": "Nom de la base",
                     "username": "Utilisateur",
                     "password": "Mot de passe",
+                    "open_phpmyadmin": "Ouvrir phpMyAdmin",
                     "link_to_project_title": "Lier à un Projet",
                     "no_projects_to_link": "Vous n'avez aucun projet disponible pour lier cette base de données.",
                     "select_project": "Sélectionnez un projet...",

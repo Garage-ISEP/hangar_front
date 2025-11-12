@@ -121,6 +121,17 @@ pub fn database_dashboard(props: &DatabaseDashboardProps) -> Html
                     <p><strong>{ i18n.t("database.db_name") }{":"}</strong> <span class="detail-value">{ &db.database_name }</span></p>
                     <p><strong>{ i18n.t("database.username") }{":"}</strong> <span class="detail-value">{ &db.username }</span></p>
                     <p><strong>{ i18n.t("database.password") }{":"}</strong> <span class="detail-value">{ &db.password }</span></p>
+
+                    <div style="margin-top: var(--spacing-lg);">
+                        <a
+                            href="https://phpmyadmin.hangar.garageisep.com"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="button-primary"
+                        >
+                            { i18n.t("database.open_phpmyadmin") }
+                        </a>
+                    </div>
                 </div>
 
                 <div class="card" style="margin-top: var(--spacing-lg);">

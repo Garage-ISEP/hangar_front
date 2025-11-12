@@ -1,4 +1,4 @@
-use crate::{components::protected_route::ProtectedRoute, pages::{self, admin, create_project, database_dashboard, project_dashboard}};
+use crate::{components::protected_route::{AdminRoute, ProtectedRoute}, pages::{self, admin, create_project, database_dashboard, project_dashboard}};
 use yew::prelude::*;
 use yew_router::prelude::*;
 
@@ -52,11 +52,11 @@ pub fn switch(route: AppRoute) -> Html
                 <database_dashboard::DatabaseDashboard db_id={id} />
             </ProtectedRoute>
         },
-        AppRoute::Admin => html! 
+        AppRoute::Admin => html!
         {
-            <ProtectedRoute>
+            <AdminRoute>
                 <admin::Admin />
-            </ProtectedRoute>
+            </AdminRoute>
         },
         AppRoute::About => html! { <pages::about::About /> },
         AppRoute::Terms => html! { <pages::terms::Terms /> },
