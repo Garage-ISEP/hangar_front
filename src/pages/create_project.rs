@@ -320,6 +320,7 @@ pub fn create_project() -> Html
             }
 
             <h1>{ i18n.t("create_project.title") }</h1>
+            <p>{ i18n.t("create_project.documentation")}</p>
 
             <div class="tabs-container">
                 <button class={tab_class(DeployMethod::GitHub)} onclick={select_method(DeployMethod::GitHub)}>

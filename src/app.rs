@@ -169,6 +169,7 @@ pub fn app() -> Html
                 },
                 "create_project": {
                     "title": "Create a new project",
+                    "documentation": "Please refer to the <a href=\"https://outline.garageisep.com/s/6b296d0a-141c-4ca5-8551-de0da31880c7/doc/documentation-hangar-h2Ow69b9cQ\" target=\"_blank\" rel=\"noopener noreferrer\">documentation</a>.",
                     "github_tab": "Deploy from GitHub",
                     "direct_tab": "Advanced: Deploy from Image",
                     "description_github": "The easiest way. Your code will be automatically built and deployed from a public GitHub repository.",
@@ -198,7 +199,7 @@ pub fn app() -> Html
                     "github_branch_help": "Leave empty to use the default branch.",
                     "github_branch_label": "GitHub branch (Optional)",
                     "github_root_dir_label": "Root Directory (Optional)",
-                    "github_root_dir_help": "The subdirectory containing your main file. Leave empty if the code is at the root."
+                    "github_root_dir_help": "Relative path to the folder containing index.php. Example: /src/public. Leave empty if index.php is at the project root."
                 },
                 "project_dashboard": {
                     "title": "Project dashboard",
@@ -454,6 +455,7 @@ pub fn app() -> Html
                 },
                 "create_project": {
                     "title": "Créer un nouveau projet",
+                    "documentation": "Veuillez consulter la <a href=\"https://outline.garageisep.com/s/6b296d0a-141c-4ca5-8551-de0da31880c7/doc/documentation-hangar-h2Ow69b9cQ\" target=\"_blank\" rel=\"noopener noreferrer\">documentation</a>.",
                     "github_tab": "Déployer depuis GitHub",
                     "direct_tab": "Avancé : Déployer depuis une image",
                     "description_github": "La méthode la plus simple. Votre code sera automatiquement build et déployé depuis un dépôt GitHub public.",
@@ -483,7 +485,7 @@ pub fn app() -> Html
                     "github_branch_help": "Laissez vide pour utiliser la branche par défaut.",
                     "github_branch_label": "Branche GitHub (facultatif)",
                     "github_root_dir_label": "Dossier Racine (facultatif)",
-                    "github_root_dir_help": "Le sous-dossier contenant votre fichier principal. Laissez vide si le code est à la racine."
+                    "github_root_dir_help": "Chemin relatif vers le dossier contenant index.php. Ex: /src/public. Laissez vide si index.php est à la racine."
                 },
                 "project_dashboard": {
                     "title": "Tableau de bord du projet",
