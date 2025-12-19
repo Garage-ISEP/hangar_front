@@ -320,7 +320,7 @@ pub fn create_project() -> Html
             }
 
             <h1>{ i18n.t("create_project.title") }</h1>
-            <p>{ i18n.t("create_project.documentation")}</p>
+            <p>{ i18n.t("create_project.documentation")}<a href="https://outline.garageisep.com/s/6b296d0a-141c-4ca5-8551-de0da31880c7/doc/documentation-hangar-h2Ow69b9cQ" target="_blank" rel="noopener noreferrer">{"documentation"}</a></p>
 
             <div class="tabs-container">
                 <button class={tab_class(DeployMethod::GitHub)} onclick={select_method(DeployMethod::GitHub)}>
