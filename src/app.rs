@@ -48,6 +48,7 @@ pub fn app() -> Html
                 "footer": {
                     "about": "About",
                     "terms": "Terms of Use",
+                    "privacy": "Privacy Policy",
                     "contact": "Contact"
                 },
                 "about": {
@@ -148,6 +149,63 @@ pub fn app() -> Html
                     
                     "acceptance": "By using Hangar, you confirm that you have read, understood, and accepted these terms of use."
                 },
+                "privacy": {
+                    "title": "Privacy Policy – Hangar",
+                    "last_updated": "Last updated: December 2025",
+                    "intro": "This privacy policy informs Hangar users how their data is collected, used, and protected in accordance with the GDPR and French Data Protection Law.",
+
+                    "h2_1": "1. Data Controller",
+                    "p1": "Garage Isep\nFrench non-profit association – R.N.A: W751249825\nAddress: 28 Rue Notre Dame des Champs, 75006 Paris, France\nEmail: dsi@garageisep.com",
+
+                    "h2_2": "2. Personal Data Collected",
+                    "p2_intro": "The following data may be collected:",
+                    "p2_id": "• Identification data: first name, ISEP email, ISEP user ID",
+                    "p2_tech": "• Technical data: IP address, connection logs, project information, application logs",
+                    "p2_service": "• Service-related data: environment variables, encrypted database credentials, resources used",
+                    "p2_note": "No user passwords are stored by Hangar (CAS authentication).",
+
+                    "h2_3": "3. Purposes of Processing",
+                    "p3_1": "Provide and manage access to Hangar",
+                    "p3_2": "Enable deployment and hosting of applications",
+                    "p3_3": "Ensure security and prevent abuse",
+                    "p3_4": "Monitor performance and stability",
+                    "p3_5": "Technical support and maintenance",
+                    "p3_6": "Compliance with legal obligations",
+
+                    "h2_4": "4. Legal Basis",
+                    "p4_1": "Service execution (Art. 6.1.b GDPR)",
+                    "p4_2": "Legitimate interest (Art. 6.1.f GDPR)",
+                    "p4_3": "Legal obligations (Art. 6.1.c GDPR)",
+
+                    "h2_5": "5. Data Retention",
+                    "p5": "Account data: duration of service use\nLogs: max 12 months\nProject data: deleted when project is deleted",
+
+                    "h2_6": "6. Data Recipients",
+                    "p6": "Authorized DSI members and necessary technical administrators. Data is not sold or shared.",
+
+                    "h2_7": "7. Data Hosting",
+                    "p7": "Hosting in France / EU. Technical and organizational measures ensure security and confidentiality.",
+
+                    "h2_8": "8. Data Security",
+                    "p8": "AES-256-GCM encryption, restricted access, container isolation, HTTPS, regular backups. No system is completely risk-free.",
+
+                    "h2_9": "9. User Rights",
+                    "p9": "Right to access, rectify, erase, restrict, object, and portability. Contact: dsi@garageisep.com, response within 30 days.",
+
+                    "h2_10": "10. Account Deletion",
+                    "p10": "Deletion possible via interface or email, also deletes associated projects and data.",
+
+                    "h2_11": "11. Cookies and Trackers",
+                    "p11": "Only strictly necessary cookies are used. No advertising or commercial tracking cookies.",
+
+                    "h2_12": "12. Policy Updates",
+                    "p12": "Garage Isep may update this policy at any time. Users are informed via the platform.",
+
+                    "h2_13": "13. Complaints to CNIL",
+                    "p13": "French Data Protection Authority (CNIL) – www.cnil.fr",
+
+                    "contact": "Contact: dsi@garageisep.com"
+                    },
                 "contact": {
                     "title": "Contact",
                     "p1": "If you have any questions, encounter a problem, or have suggestions for improvement, please do not hesitate to contact the Garage Isep team.",
@@ -334,6 +392,7 @@ pub fn app() -> Html
                  "footer": {
                     "about": "À propos",
                     "terms": "Conditions d'utilisation",
+                    "privacy": "Politique de confidentialité",
                     "contact": "Contact"
                 },
                 "about": {
@@ -434,6 +493,63 @@ pub fn app() -> Html
                     
                     "acceptance": "En utilisant Hangar, vous confirmez avoir lu, compris et accepté ces conditions d'utilisation."
                 },
+                "privacy": {
+                    "title": "Politique de confidentialité – Hangar",
+                    "last_updated": "Dernière mise à jour : Décembre 2025",
+                    "intro": "La présente politique de confidentialité informe les utilisateurs de Hangar sur la collecte, l'utilisation et la protection de leurs données conformément au RGPD et à la loi Informatique et Libertés.",
+
+                    "h2_1": "1. Responsable du traitement",
+                    "p1": "Garage Isep\nAssociation loi 1901 – R.N.A : W751249825\nSiège social : 28 Rue Notre Dame des Champs, 75006 Paris, France\nEmail : dsi@garageisep.com",
+
+                    "h2_2": "2. Données personnelles collectées",
+                    "p2_intro": "Les données suivantes peuvent être collectées :",
+                    "p2_id": "• Données d’identification : prénom, email institutionnel ISEP, identifiant utilisateur",
+                    "p2_tech": "• Données techniques : IP, logs de connexion, informations projet, logs applicatifs",
+                    "p2_service": "• Données liées aux services : variables d’environnement, identifiants de bases de données chiffrés, ressources utilisées",
+                    "p2_note": "Aucun mot de passe utilisateur n’est stocké par Hangar (authentification CAS).",
+
+                    "h2_3": "3. Finalités du traitement",
+                    "p3_1": "Fournir et gérer l’accès à Hangar",
+                    "p3_2": "Permettre le déploiement et l’hébergement des applications",
+                    "p3_3": "Assurer la sécurité et prévenir les abus",
+                    "p3_4": "Surveiller performances et stabilité",
+                    "p3_5": "Support technique et maintenance",
+                    "p3_6": "Respect des obligations légales",
+
+                    "h2_4": "4. Base légale du traitement",
+                    "p4_1": "Exécution d’un service (article 6.1.b RGPD)",
+                    "p4_2": "Intérêt légitime (article 6.1.f RGPD)",
+                    "p4_3": "Obligations légales (article 6.1.c RGPD)",
+
+                    "h2_5": "5. Durée de conservation des données",
+                    "p5": "Données de compte : durée d’utilisation du service\nLogs : 12 mois maximum\nDonnées projet : supprimées à la suppression du projet",
+
+                    "h2_6": "6. Destinataires des données",
+                    "p6": "Membres habilités de l’équipe DSI et administrateurs techniques strictement nécessaires. Les données ne sont ni vendues ni cédées.",
+
+                    "h2_7": "7. Hébergement des données",
+                    "p7": "Hébergement en France / UE. Mesures techniques et organisationnelles pour garantir sécurité et confidentialité.",
+
+                    "h2_8": "8. Sécurité des données",
+                    "p8": "Chiffrement AES-256-GCM, accès restreint, isolation des conteneurs, HTTPS, sauvegardes régulières. Aucun système n’est totalement exempt de risques.",
+
+                    "h2_9": "9. Droits des utilisateurs",
+                    "p9": "Droit d’accès, rectification, effacement, limitation, opposition, portabilité. Contact : dsi@garageisep.com, réponse sous 30 jours.",
+
+                    "h2_10": "10. Suppression du compte",
+                    "p10": "Suppression possible via interface ou email, entraîne suppression des projets et données associées.",
+
+                    "h2_11": "11. Cookies et traceurs",
+                    "p11": "Utilisation uniquement de cookies strictement nécessaires. Aucun cookie publicitaire ou de traçage commercial.",
+
+                    "h2_12": "12. Modification de la politique",
+                    "p12": "Garage Isep peut modifier cette politique à tout moment. Les utilisateurs sont informés via la plateforme.",
+
+                    "h2_13": "13. Réclamation CNIL",
+                    "p13": "Commission Nationale de l’Informatique et des Libertés (CNIL) – www.cnil.fr",
+
+                    "contact": "Contact : dsi@garageisep.com"
+                    },
                 "contact": {
                     "title": "Contact",
                     "p1": "Pour toute question, problème ou suggestion d'amélioration, n'hésitez pas à contacter l'équipe de Garage Isep.",

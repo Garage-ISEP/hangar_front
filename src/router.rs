@@ -21,6 +21,8 @@ pub enum AppRoute
     About,
     #[at("/terms")]
     Terms,
+    #[at("/privacy")]
+    Privacy,
     #[at("/contact")]
     Contact,
     #[not_found]
@@ -60,6 +62,7 @@ pub fn switch(route: AppRoute) -> Html
         },
         AppRoute::About => html! { <pages::about::About /> },
         AppRoute::Terms => html! { <pages::terms::Terms /> },
+        AppRoute::Privacy => html! { <pages::privacy::PrivacyPolicy /> },
         AppRoute::Contact => html! { <pages::contact::Contact /> },
         AppRoute::NotFound => html! { <pages::not_found::NotFound /> },
     }

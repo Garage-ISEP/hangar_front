@@ -7,4 +7,5 @@ pub mod database_dashboard;
 pub mod admin;
 pub mod about;
 pub mod terms;
+pub mod privacy;
 pub mod contact;

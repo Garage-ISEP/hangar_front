@@ -16,6 +16,7 @@ pub fn footer() -> Html
                 <ul class="footer-links">
                     <li><Link<AppRoute> to={AppRoute::About}>{ i18n.t("footer.about") }</Link<AppRoute>></li>
                     <li><Link<AppRoute> to={AppRoute::Terms}>{ i18n.t("footer.terms") }</Link<AppRoute>></li>
+                    <li><Link<AppRoute> to={AppRoute::Privacy}>{ i18n.t("footer.privacy") }</Link<AppRoute>></li>
                     <li><Link<AppRoute> to={AppRoute::Contact}>{ i18n.t("footer.contact") }</Link<AppRoute>></li>
                 </ul>
             </div>
