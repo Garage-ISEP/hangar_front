@@ -1,5 +1,5 @@
 use crate::models::project::{
-    DeployPayload, DownProjectInfo, DownProjectsResponse, GlobalMetrics, Project, ProjectDetails, ProjectDetailsResponse, ProjectMetrics, ProjectsResponse, UpdateEnvPayload
+    DeployPayload, DownProjectInfo, DownProjectsResponse, GlobalMetrics, Project, ProjectDetails, ProjectDetailsResponse, ProjectsResponse, UpdateEnvPayload
 };
 use gloo_net::http::Request;
 use serde::{Deserialize, Serialize};
@@ -12,13 +12,6 @@ pub struct ApiError
     pub error_code: String,
     pub details: Option<String>,
 }
-
-#[derive(Deserialize)]
-pub struct StatusResponse 
-{
-    pub status: Option<String>,
-}
-
 #[derive(Deserialize)]
 pub struct LogsResponse 
 {
@@ -176,24 +169,6 @@ pub async fn get_project_details(project_id: i32) -> Result<ProjectDetails, Stri
         .map_err(|e| format!("Failed to parse response: {}", e))
 }
 
-pub async fn get_project_status(project_id: i32) -> Result<Option<String>, String> 
-{
-    let response = Request::get(&format!("{}/projects/{}/status", API_ROOT, project_id))
-        .send()
-        .await
-        .map_err(|e| format!("Network error: {}", e))?;
-
-    if !response.ok() 
-    {
-        return Err(parse_simple_error_response(response).await);
-    }
-
-    response
-        .json::<StatusResponse>()
-        .await
-        .map(|r| r.status)
-        .map_err(|e| format!("Failed to parse response: {}", e))
-}
 
 pub async fn start_project(project_id: i32) -> Result<(), String> 
 {
@@ -253,24 +228,6 @@ pub async fn get_project_logs(project_id: i32) -> Result<String, String>
         .json::<LogsResponse>()
         .await
         .map(|r| r.logs)
-        .map_err(|e| format!("Failed to parse response: {}", e))
-}
-
-pub async fn get_project_metrics(project_id: i32) -> Result<ProjectMetrics, String> 
-{
-    let response = Request::get(&format!("{}/projects/{}/metrics", API_ROOT, project_id))
-        .send()
-        .await
-        .map_err(|e| format!("Network error: {}", e))?;
-
-    if !response.ok() 
-    {
-        return Err(parse_simple_error_response(response).await);
-    }
-
-    response
-        .json::<ProjectMetrics>()
-        .await
         .map_err(|e| format!("Failed to parse response: {}", e))
 }
 

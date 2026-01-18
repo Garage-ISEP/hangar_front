@@ -5,6 +5,7 @@ mod models;
 mod pages;
 mod router;
 mod services;
+mod hooks;
 
 use app::App;
 

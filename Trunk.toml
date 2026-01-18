@@ -11,4 +11,5 @@ open = true # Ouvrir le navigateur au démarrage
 # Proxy pour les appels API vers le backend
 [[proxy]]
 rewrite = "/api"
-backend = "http://hangar.garageisep.com/api" # L'adresse de votre backend Axum
+#backend = "http://hangar.garageisep.com/api" # L'adresse de votre backend Axum
+backend = "http://hangar.localhost/api" # L'adresse de votre backend Axum

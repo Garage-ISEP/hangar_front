@@ -6,6 +6,8 @@ RUN apk add --no-cache build-base openssl-dev pkgconfig
 RUN rustup target add wasm32-unknown-unknown
 
 RUN cargo install trunk --locked
+# permet de mettre wasm-bindgen en cache car trunk le retelecharge à chaque fois sinon
+RUN cargo install wasm-bindgen-cli --version 0.2.106
 
 WORKDIR /usr/src/app
 
