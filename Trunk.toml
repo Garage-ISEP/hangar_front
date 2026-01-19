@@ -1,15 +1,13 @@
 [watch]
-# Dossiers à surveiller pour le rechargement à chaud
 watch = ["./src"]
 
 [serve]
-# Adresse du serveur de développement frontend
 addresses = ["127.0.0.1"]
 port = 8080
-open = true # Ouvrir le navigateur au démarrage
+open = false
 
 # Proxy pour les appels API vers le backend
 [[proxy]]
 rewrite = "/api"
-#backend = "http://hangar.garageisep.com/api" # L'adresse de votre backend Axum
-backend = "http://hangar.localhost/api" # L'adresse de votre backend Axum
+backend = "http://hangar.garageisep.com/api"
+#backend = "http://hangar.localhost/api"

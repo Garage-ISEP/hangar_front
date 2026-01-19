@@ -2,6 +2,7 @@ use i18nrs::yew::use_translation;
 use yew::prelude::*;
 use yew_router::prelude::*;
 
+use crate::components::system_notifications::SystemNotifications;
 use crate::contexts::sse_context::{use_sse_deployment, SseProvider};
 use crate::contexts::user_context::use_user;
 use crate::models::database::DatabaseDetails;
@@ -59,6 +60,7 @@ fn project_dashboard_inner(props: &ProjectDashboardInnerProps) -> Html
     let error = use_state(|| None::<String>);
     let trigger_reload = use_state(|| 0_u32);
 
+    // Détecter la fin d'un déploiement pour recharger les détails
     {
         let trigger_reload = trigger_reload.clone();
         let deployment_stage = use_sse_deployment();
@@ -77,6 +79,7 @@ fn project_dashboard_inner(props: &ProjectDashboardInnerProps) -> Html
         });
     }
 
+    // Chargement initial des données
     {
         let project_details = project_details.clone();
         let my_database = my_database.clone();
@@ -116,6 +119,7 @@ fn project_dashboard_inner(props: &ProjectDashboardInnerProps) -> Html
         })
     };
 
+    // État d'erreur
     if let Some(e) = &*error
     {
         let error_message = i18n
@@ -133,6 +137,7 @@ fn project_dashboard_inner(props: &ProjectDashboardInnerProps) -> Html
         };
     }
 
+    // État de chargement
     let Some(details) = &*project_details
     else
     {
@@ -159,6 +164,8 @@ fn project_dashboard_inner(props: &ProjectDashboardInnerProps) -> Html
     html!
     {
         <div>
+            <SystemNotifications />
+            
             <h1>{ i18n.t("project_dashboard.title") }{ format!(": {}", p.name) }</h1>
 
             <ProjectInfo project_details={details.clone()} />

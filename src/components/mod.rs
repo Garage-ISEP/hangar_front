@@ -13,3 +13,4 @@ pub mod project_controls;
 pub mod project_info;
 pub mod project_logs;
 pub mod project_metrics;
+pub mod system_notifications;

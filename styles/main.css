@@ -825,6 +825,29 @@ nav .logo-link::after {
 }
 
 
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.notification-info {
+    border-left: 4px solid #3b82f6 !important;
+}
+
+.notification-warning {
+    border-left: 4px solid #f59e0b !important;
+}
+
+.notification-error {
+    border-left: 4px solid #ef4444 !important;
+}
+
 /* =================================== */
 /* == Responsive (Mobile)           == */
 /* =================================== */
