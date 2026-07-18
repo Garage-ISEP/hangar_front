@@ -79,13 +79,11 @@ fn dashboard() -> Html
                 let unlinked_db = unlinked_db.clone();
                 wasm_bindgen_futures::spawn_local(async move 
                 {
-                    if let Ok(db) = database_service::get_my_database().await 
-                    {
-                        if db.project_id.is_none() 
+                    if let Ok(db) = database_service::get_my_database().await
+                        && db.project_id.is_none() 
                         {
                             unlinked_db.set(Some(db));
                         }
-                    }
                 });
 
             });

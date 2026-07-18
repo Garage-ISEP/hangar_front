@@ -33,6 +33,7 @@ pub fn app() -> Html
                     "status_restarting": "Restarting",
                     "status_created": "Created",
                     "status_paused": "Paused",
+                    "status_stopping": "Stopping",
                     "status_unknown": "Unknown"
                 },
                 "home": {
@@ -406,6 +407,7 @@ pub fn app() -> Html
                     "status_restarting": "Redémarrage",
                     "status_created": "Créé",
                     "status_paused": "En pause",
+                    "status_stopping": "Arrêt en cours",
                     "status_unknown": "Inconnu"
                 },
                 "home": {

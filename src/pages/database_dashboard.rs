@@ -22,7 +22,7 @@ pub fn database_dashboard(props: &DatabaseDashboardProps) -> Html
     let navigator = use_navigator().unwrap();
     
     let db_details = use_state(|| None::<DatabaseDetails>);
-    let projects = use_state(|| vec![]);
+    let projects = use_state(std::vec::Vec::new);
     let error = use_state(|| None::<ApiError>);
     let selected_project_to_link = use_state(String::new);
 
@@ -40,10 +40,9 @@ pub fn database_dashboard(props: &DatabaseDashboardProps) -> Html
                     Ok(db) => db_details.set(Some(db)),
                     Err(e) => error.set(Some(e)),
                 }
-                match project_service::get_owned_projects().await
-                {
-                    Ok(projs) => projects.set(projs),
-                    Err(_) => {}, // Ignore error, linking will just not be possible
+                if let Ok(projs) = project_service::get_owned_projects().await 
+                { 
+                    projects.set(projs) 
                 }
             });
             || ()

@@ -168,8 +168,7 @@ fn database_manager(props: &DatabaseManagerProps) -> Html
 
     // Scénario 2: L'utilisateur a une BDD personnelle non liée
     if let Some(my_db) = &props.my_database
-    {
-        if my_db.project_id.is_none()
+        && my_db.project_id.is_none()
         {
             let on_link_existing = 
             {
@@ -200,7 +199,6 @@ fn database_manager(props: &DatabaseManagerProps) -> Html
                 </div>
             };
         }
-    }
 
     // Scénario 3: Pas de BDD liée et pas de BDD personnelle disponible
     let error = use_state(|| None::<ApiError>);

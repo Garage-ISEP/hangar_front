@@ -6,6 +6,7 @@ use crate::services::sse_service::{SseEvent, connect_to_creation, connect_to_pro
 const MAX_EVENTS: usize = 100;
 
 #[derive(Clone, PartialEq)]
+#[derive(Default)]
 pub struct SseState
 {
     pub events: Vec<SseEvent>,
@@ -13,18 +14,6 @@ pub struct SseState
     pub error: Option<String>,
 }
 
-impl Default for SseState
-{
-    fn default() -> Self
-    {
-        Self 
-        {
-            events: Vec::new(),
-            connected: false,
-            error: None,
-        }
-    }
-}
 
 #[hook]
 pub fn use_sse_creation() -> SseState

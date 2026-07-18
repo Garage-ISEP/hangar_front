@@ -186,8 +186,7 @@ pub fn create_project() -> Html
                     .collect();
 
                 if let Some(login) = &user_login
-                {
-                    if participants_set.contains(login)
+                    && participants_set.contains(login)
                     {
                         error.set(Some(ApiError 
                         {
@@ -197,7 +196,6 @@ pub fn create_project() -> Html
                         is_loading.set(false);
                         return;
                     }
-                }
                 let participants: Vec<String> = participants_set.into_iter().collect();
 
                 let env_vars: HashMap<String, String> = (*env_vars_str)
@@ -553,8 +551,7 @@ pub fn create_project() -> Html
                                         value={(*env_vars_str).clone()}
                                         onchange={handle_change_textarea(env_vars_str.clone())}
                                         rows="4"
-                                        disabled={is_deploying}>
-                                    </textarea>
+                                        disabled={is_deploying} />
                                     <small style="color: var(--color-text-secondary)">{ i18n.t("create_project.env_vars_help") }</small>
                                 </div>
 

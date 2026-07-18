@@ -121,7 +121,6 @@ pub fn image_update_form(props: &ImageUpdateFormProps) -> Html
         let update_error = update_error.clone();
         let hide_progress = hide_progress.clone();
         let i18n = i18n.clone();
-        let is_github = is_github;
         let on_update = props.on_update.clone();
 
         Callback::from(move |e: SubmitEvent|

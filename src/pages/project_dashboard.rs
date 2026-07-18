@@ -154,9 +154,9 @@ fn project_dashboard_inner(props: &ProjectDashboardInnerProps) -> Html
     let has_strong_access = user_context
         .user
         .as_ref()
-        .map_or(false, |u| u.is_admin || u.login == p.owner);
+        .is_some_and(|u| u.is_admin || u.login == p.owner);
 
-    let has_weak_access = user_context.user.as_ref().map_or(false, |u|
+    let has_weak_access = user_context.user.as_ref().is_some_and(|u|
     {
         u.is_admin || u.login == p.owner || details.participants.contains(&u.login)
     });
@@ -319,6 +319,7 @@ pub fn get_status_class(status: &ContainerStatus) -> &'static str
         ContainerStatus::Created => "status_created",
         ContainerStatus::Restarting => "status_restarting",
         ContainerStatus::Paused => "status_paused",
+        ContainerStatus::Stopping => "status_stopping",
         ContainerStatus::Exited => "status_exited",
         ContainerStatus::Dead => "status_dead",
         ContainerStatus::Removing => "status_removing",

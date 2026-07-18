@@ -20,7 +20,7 @@ pub fn protected_route(props: &ProtectedRouteProps) -> Html
     }
     else if user_context.user.is_some()
     {
-        html! { for props.children.iter() }
+        html! { { props.children.iter().collect::<Html>() } }
     }
     else
     {
@@ -49,7 +49,7 @@ pub fn admin_route(props: &AdminRouteProps) -> Html
     {
         if user.is_admin
         {
-            html! { for props.children.iter() }
+            html! { { props.children.iter().collect::<Html>() } }
         }
         else
         {

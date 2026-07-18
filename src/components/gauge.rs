@@ -14,7 +14,7 @@ pub fn gauge(props: &GaugeProps) -> Html
 {
     let percentage = if props.max_value > 0.0 
     {
-        (props.value / props.max_value).min(1.0).max(0.0) * 100.0
+        (props.value / props.max_value).clamp(0.0, 1.0)
     } 
     else 
     {

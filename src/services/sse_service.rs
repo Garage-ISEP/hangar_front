@@ -85,6 +85,7 @@ pub enum ContainerStatus
     Running,
     Removing,
     Paused,
+    Stopping,
     Exited,
     Dead,
     Unknown,
@@ -128,6 +129,7 @@ impl SseManager
         event_source: &mut EventSource,
         event_type: &str,
         on_message: Callback<SseEvent>,
+        on_error: Callback<String>,
     )
     {
         let event_type_owned = event_type.to_string();
@@ -167,6 +169,7 @@ impl SseManager
                                     &event_type_owned,
                                     format!("{:?}", e)
                                 );
+                                on_error.emit(format!("SSE stream error ({})", event_type_owned));
                                 break;
                             }
                         }
@@ -203,34 +206,8 @@ pub fn connect_sse(
 
     for event_type in &event_types
     {
-        SseManager::subscribe_to_event(&mut event_source, event_type, on_message.clone());
+        SseManager::subscribe_to_event(&mut event_source, event_type, on_message.clone(), on_error.clone());
     }
-
-    let event_source_clone = event_source.clone();
-    spawn_local(async move 
-    {
-        loop
-        {
-            gloo_timers::future::sleep(std::time::Duration::from_secs(2)).await;
-
-            match event_source_clone.state()
-            {
-                gloo_net::eventsource::State::Closed =>
-                {
-                    on_error.emit("SSE connection closed".to_string());
-                    break;
-                }
-                gloo_net::eventsource::State::Connecting =>
-                {
-                    gloo_console::log!("SSE reconnecting...");
-                }
-                gloo_net::eventsource::State::Open =>
-                {
-                    // Connection is healthy
-                }
-            }
-        }
-    });
 
     Ok(event_source)
 }

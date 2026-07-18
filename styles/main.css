@@ -406,7 +406,7 @@ nav .logo-link::after {
     color: var(--color-danger);
 }
 
-.status_restarting, .status_created, .status_paused {
+.status_restarting, .status_created, .status_paused, .status_stopping {
     background-color: rgba(245, 166, 35, 0.2);
     color: #F5A623;
 }
