@@ -31,18 +31,18 @@ pub fn database_dashboard(props: &DatabaseDashboardProps) -> Html
         let projects = projects.clone();
         let error = error.clone();
 
-        use_effect_with((), move |_|
+        use_effect_with(props.db_id, move |&db_id|
         {
-            wasm_bindgen_futures::spawn_local(async move 
+            wasm_bindgen_futures::spawn_local(async move
             {
-                match database_service::get_my_database().await
+                match database_service::get_database(db_id).await
                 {
                     Ok(db) => db_details.set(Some(db)),
                     Err(e) => error.set(Some(e)),
                 }
-                if let Ok(projs) = project_service::get_owned_projects().await 
-                { 
-                    projects.set(projs) 
+                if let Ok(projs) = project_service::get_owned_projects().await
+                {
+                    projects.set(projs)
                 }
             });
             || ()

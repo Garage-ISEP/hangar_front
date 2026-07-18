@@ -200,7 +200,9 @@ pub fn admin() -> Html
                                         {
                                             <li style="display: flex; justify-content: space-between; align-items: center; padding: var(--spacing-sm) 0; border-bottom: 1px solid var(--color-border);">
                                                 <div>
-                                                    <strong>{ &d.database_name }</strong>
+                                                    <Link<AppRoute> to={AppRoute::DatabaseDashboard { id: d.id }}>
+                                                        <strong>{ &d.database_name }</strong>
+                                                    </Link<AppRoute>>
                                                     <span style="color: var(--color-text-secondary);">{ format!(" (Owner: {})", d.owner_login) }</span>
                                                 </div>
                                                 {

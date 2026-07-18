@@ -39,6 +39,41 @@ pub async fn get_my_database() -> Result<DatabaseDetails, ApiError>
         })
 }
 
+pub async fn get_database(db_id: i32) -> Result<DatabaseDetails, ApiError>
+{
+    let response = Request::get(&format!("{}/databases/{}", API_ROOT, db_id))
+        .send()
+        .await
+        .map_err(|e| ApiError
+        {
+            error_code: "NETWORK_ERROR".to_string(),
+            details: Some(e.to_string()),
+        })?;
+
+    if response.status() == 404
+    {
+        return Err(ApiError
+        {
+            error_code: "NOT_FOUND".to_string(),
+            details: None,
+        });
+    }
+
+    if !response.ok()
+    {
+        return Err(parse_detailed_error_response(response).await);
+    }
+
+    response
+        .json::<DatabaseDetailsResponse>()
+        .await
+        .map(|r| r.database)
+        .map_err(|e| ApiError {
+            error_code: "RESPONSE_PARSE_ERROR".to_string(),
+            details: Some(e.to_string()),
+        })
+}
+
 pub async fn create_database() -> Result<DatabaseDetails, ApiError>
 {
     let response = Request::post(&format!("{}/databases", API_ROOT))
