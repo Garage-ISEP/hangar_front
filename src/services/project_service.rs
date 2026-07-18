@@ -1,3 +1,4 @@
+use crate::models::database::{AdminDatabaseInfo, AdminDatabasesResponse};
 use crate::models::project::{
     DeployPayload, DownProjectInfo, DownProjectsResponse, GlobalMetrics, Project, ProjectDetails, ProjectDetailsResponse, ProjectsResponse, UpdateEnvPayload
 };
@@ -344,7 +345,26 @@ pub async fn get_all_projects_admin() -> Result<Vec<Project>, String>
         .map_err(|e| format!("Failed to parse response: {}", e))
 }
 
-pub async fn get_global_metrics_admin() -> Result<GlobalMetrics, String> 
+pub async fn get_all_databases_admin() -> Result<Vec<AdminDatabaseInfo>, String>
+{
+    let response = Request::get(&format!("{}/admin/databases", API_ROOT))
+        .send()
+        .await
+        .map_err(|e| format!("Network error: {}", e))?;
+
+    if !response.ok()
+    {
+        return Err(parse_simple_error_response(response).await);
+    }
+
+    response
+        .json::<AdminDatabasesResponse>()
+        .await
+        .map(|r| r.databases)
+        .map_err(|e| format!("Failed to parse response: {}", e))
+}
+
+pub async fn get_global_metrics_admin() -> Result<GlobalMetrics, String>
 {
     Request::get(&format!("{}/admin/metrics", API_ROOT))
         .send()

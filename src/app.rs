@@ -362,6 +362,8 @@ pub fn app() -> Html
                 "admin": {
                     "title": "Admin dashboard",
                     "all_projects_title": "All projects",
+                    "all_databases_title": "Databases",
+                    "no_databases": "No databases found.",
                     "global_metrics_title": "Global metrics"
                 },
                 "errors": {
@@ -733,6 +735,8 @@ pub fn app() -> Html
                 "admin": {
                     "title": "Tableau de bord admin",
                     "all_projects_title": "Tous les projets",
+                    "all_databases_title": "Bases de données",
+                    "no_databases": "Aucune base de données trouvée.",
                     "global_metrics_title": "Métriques globales"
                 },
                 "errors": {

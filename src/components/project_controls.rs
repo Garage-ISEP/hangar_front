@@ -60,7 +60,8 @@ pub fn project_controls(props: &ProjectControlsProps) -> Html
             })
         };
 
-    let on_start = create_control_callback(
+    let on_start = create_control_callback
+    (
         |id| Box::pin(project_service::start_project(id)),
         i18n.t("project_dashboard.start_success"),
     );

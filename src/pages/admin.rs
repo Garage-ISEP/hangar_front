@@ -1,3 +1,4 @@
+use crate::models::database::AdminDatabaseInfo;
 use crate::models::project::{DownProjectInfo, GlobalMetrics, Project};
 use crate::router::AppRoute;
 use crate::services::project_service;
@@ -33,11 +34,13 @@ pub fn admin() -> Html
     let metrics = use_state(|| None::<GlobalMetrics>);
     let down_projects = use_state(|| None::<Vec<DownProjectInfo>>);
     let all_projects = use_state(|| None::<Vec<Project>>);
+    let all_databases = use_state(|| None::<Vec<AdminDatabaseInfo>>);
 
     {
         let metrics = metrics.clone();
         let down_projects = down_projects.clone();
         let all_projects = all_projects.clone();
+        let all_databases = all_databases.clone();
 
         use_effect_with((), move |_| 
         {
@@ -60,9 +63,17 @@ pub fn admin() -> Html
             // Fetch All Projects
             wasm_bindgen_futures::spawn_local(async move 
             {
-                if let Ok(p) = project_service::get_all_projects_admin().await 
+                if let Ok(p) = project_service::get_all_projects_admin().await
                 {
                     all_projects.set(Some(p));
+                }
+            });
+            // Fetch All Databases
+            wasm_bindgen_futures::spawn_local(async move
+            {
+                if let Ok(d) = project_service::get_all_databases_admin().await
+                {
+                    all_databases.set(Some(d));
                 }
             });
             || ()
@@ -162,7 +173,63 @@ pub fn admin() -> Html
                             </ul>
                         }
                     } 
-                    else 
+                    else
+                    {
+                        html!{ <p>{ i18n.t("common.loading") }</p> }
+                    }
+                }
+            </div>
+
+            // Section Toutes les bases de données
+            <div class="card" style="margin-top: var(--spacing-lg)">
+                <h2>{ i18n.t("admin.all_databases_title") }</h2>
+                {
+                    if let Some(databases) = &*all_databases
+                    {
+                        if databases.is_empty()
+                        {
+                            html! { <p>{ i18n.t("admin.no_databases") }</p> }
+                        }
+                        else
+                        {
+                            html!
+                            {
+                                <ul style="list-style: none;">
+                                    {
+                                        for databases.iter().map(|d| html!
+                                        {
+                                            <li style="display: flex; justify-content: space-between; align-items: center; padding: var(--spacing-sm) 0; border-bottom: 1px solid var(--color-border);">
+                                                <div>
+                                                    <strong>{ &d.database_name }</strong>
+                                                    <span style="color: var(--color-text-secondary);">{ format!(" (Owner: {})", d.owner_login) }</span>
+                                                </div>
+                                                {
+                                                    match d.project_id
+                                                    {
+                                                        Some(pid) => html!
+                                                        {
+                                                            <Link<AppRoute> to={AppRoute::ProjectDashboard { id: pid }}>
+                                                                <span class="status-badge status_running">
+                                                                    { format!("Linked to project #{}", pid) }
+                                                                </span>
+                                                            </Link<AppRoute>>
+                                                        },
+                                                        None => html!
+                                                        {
+                                                            <span class="status-badge status_restarting">
+                                                                { "Standalone" }
+                                                            </span>
+                                                        },
+                                                    }
+                                                }
+                                            </li>
+                                        })
+                                    }
+                                </ul>
+                            }
+                        }
+                    }
+                    else
                     {
                         html!{ <p>{ i18n.t("common.loading") }</p> }
                     }
